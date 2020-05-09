@@ -4,11 +4,11 @@ cryptech is an open source software. Current version is 0.3.1, built with GTK+ 3
 
 ## Launching the app
 Navigate to folder:
-```
+```bash
 $ cd cryptech.0.3.2
 ```
 Then run binary file for the app:
-```
+```bash
 $ ./cryptech
 ```
 ## Notes
@@ -21,8 +21,5 @@ The cypher technics used in this version are *OBSOLETE* so be careful out there 
 
 ## Having fun 
 If your sole purpose in life is destroying the hard work done by large teams of devs such as no one…
-Then you will have a blast messing around with this file :
-```
-sketch1.glade 
-```
+Then you will have a blast messing around with the file `sketch1.glade`.
 Have fun!
