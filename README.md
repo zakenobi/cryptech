@@ -17,7 +17,7 @@ $ ./cryptech
 
 The goal of this project is to learn how to build GNOME software throught fun and interesting topics such as cyber security.
 
-The cypher technics used in this version are *OBSOLETE* so be careful out there dont try anything stupid! 
+The encryption techniques used in this version are *OBSOLETE* so be careful out there and dont try anything stupid! 
 
 ## Having fun 
 If your sole purpose in life is destroying the hard work done by large teams of devs such as no one…
