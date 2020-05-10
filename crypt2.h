@@ -51,7 +51,7 @@ void poly_normal(char key[], char *file, char name[])
 
         //creation du fichier crypte
         FILE* pgmimg;
-        pgmimg = fopen(name, "w"); //ouverture du nouveau fichier
+        pgmimg = fopen(name, "a"); //ouverture du nouveau fichier
         for (i = 0; i < strlen(file); i++)
         {
             fprintf(pgmimg, "%c", file[i]);//ecriture du nouveau fichier
