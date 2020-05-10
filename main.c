@@ -2,6 +2,7 @@
 #include <string.h>
 #include <gtk/gtk.h>
 #include <gtk/gtkx.h>
+#include <gdk/gdk.h>
 #include <math.h>
 #include <ctype.h>
 #include <sys/stat.h>
@@ -77,7 +78,7 @@ int main(int argc, char *argv[])
 {
 	gtk_init(&argc, &argv);
 
-	builder = gtk_builder_new_from_file ("sketch1.glade");
+	builder = gtk_builder_new_from_file ("interface.ui");
 
 	window = GTK_WIDGET(gtk_builder_get_object(builder, "window"));
 	g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
@@ -136,7 +137,7 @@ void on_button1_clicked(GtkButton *b)
     gtk_widget_show(entry1);
     if(fopen("key.txt","r")==NULL)
     { 
-      quick_message(window,"vous n'avez pas l'acces a ce produit");
+      quick_message(window,"Vous n'avez pas accès à ce produit");
       gtk_widget_hide(entry1);
       gtk_widget_hide(entry2);
       gtk_widget_hide(button3);
@@ -169,7 +170,7 @@ void on_button2_clicked(GtkButton *b)
     gtk_widget_show(entry1);
     if(fopen("key.txt","r")==NULL)
     { 
-      quick_message(window,"vous n'avez pas l'acces a ce produit");
+      quick_message(window,"Vous n'avez pas accès à ce produit");
       gtk_widget_hide(entry1);
       gtk_widget_hide(entry2);
       gtk_widget_hide(button3);
@@ -271,8 +272,8 @@ void on_file1_file_set (GtkFileChooserButton *file)
   //printf("size = %d\n",size);
   char dispsize[100];
   sprintf(dispsize,"%d",size);
-  strcat(dispsize," Octets");
-  gtk_label_set_text (GTK_LABEL(label1),(const char *) "Taille du fichier:");
+  strcat(dispsize," octets");
+  gtk_label_set_text (GTK_LABEL(label1),(const char *) "Taille du fichier :");
   gtk_label_set_text (GTK_LABEL(label2),dispsize);
   //printf("I got here\n");
 }
