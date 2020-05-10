@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=cryptech
+Icon=~/lock.png
+StartupNotify=true
+Exec=~/cryptech
