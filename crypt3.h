@@ -58,7 +58,7 @@ void v_normal(char key[],int fatkey[256][256], char *file,char name[])
 
         //creation du fichier crypte
         FILE* pgmimg;
-        pgmimg = fopen(name, "w");
+        pgmimg = fopen(name, "a");
         for (i = 0; i < strlen(file); i++)
         {
             fprintf(pgmimg, "%c", file[i]);//ecriture du nouveau fichier
