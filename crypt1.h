@@ -38,7 +38,7 @@ void cesar_normal (int decallage, char *file,char name[])
         }
 
         FILE* pgmimg; // nouvelle variable de type fichier 
-        pgmimg = fopen(name, "w"); // ouverture du nouveau fichier
+        pgmimg = fopen(name, "a"); // ouverture du nouveau fichier
         for (int i = 0; i < strlen(file); i++)
         {
 
