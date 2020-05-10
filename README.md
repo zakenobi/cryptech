@@ -25,8 +25,7 @@ Then you will have a blast messing around with the file `sketch1.glade`.
 Have fun!
 
 ## Contribution
-If you are still reading this than as the prophecie fortold you must be the chosen one !
-Keep in mind that this a student project and the gaol is to learn how to build open source sofware, but feel free to contribute any way chape or form. The main file is `main.c` please keep the naming of files as they are.
+If you are still reading this then as the prophecy foretold you must be the chosen one! Keep in mind that this a student project and the gaol is to learn how to build open-source software, but feel free to contribute any way chape or form. The main file is `main.c` please keep the naming of files as they are.
 Compiling :
 ```bash
 $ gcc `pkg-config --cflags gtk+-3.0` -o cryptech main.c `pkg-config --libs gtk+-3.0`
