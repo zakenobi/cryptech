@@ -41,7 +41,7 @@ GtkWidget     *prog1;
 static gboolean progress_bar(float prog)
 { 
     //gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(prog1),(gdouble) 0);  
-    printf("prog=%f\n",prog);  
+    //printf("prog=%f\n",prog);  
     gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(prog1),(gdouble) prog);
     //sleep(1000);
 }
@@ -122,17 +122,17 @@ void on_button1_clicked(GtkButton *b)
   if (choix==1)
   {
     gtk_widget_hide(entry1);
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
   }
   if (choix==2)
   {
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
     gtk_widget_show(entry1);
     
   }
   if (choix==3)
   {
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
     gtk_widget_show(entry1);
     if(fopen("key.txt","r")==NULL)
     { 
@@ -156,16 +156,16 @@ void on_button2_clicked(GtkButton *b)
   if (choix==1)
   {
     gtk_widget_hide(entry1);
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
   }
   if (choix==2)
   {
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
     gtk_widget_show(entry1);
   }
   if (choix==3)
   {
-    printf("choix = %d\n",choix);
+    //printf("choix = %d\n",choix);
     gtk_widget_show(entry1);
     if(fopen("key.txt","r")==NULL)
     { 
