@@ -323,12 +323,6 @@ void on_entry1_changed(GtkEntry *e)
   //printf("entry : %s",name);
 }
 
-void on_entry2_changed(GtkEntry *e)
-{
-  sprintf(name,"%s",gtk_entry_get_text(e));
-  //printf("entry : %s",name);
-}
-
 void on_dark_toggled(GtkCheckButton *b)
 {
   gboolean T= gtk_check_menu_item_get_active(GTK_CHECK_MENU_ITEM(b));

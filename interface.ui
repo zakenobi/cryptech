@@ -185,22 +185,7 @@ grâce à notre technologie de pointe.
           </object>
           <packing>
             <property name="x">400</property>
-            <property name="y">280</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEntry" id="entry2">
-            <property name="width_request">200</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="tooltip_text" translatable="yes">Nom du fichier cible</property>
-            <property name="max_length">40</property>
-            <property name="placeholder_text" translatable="yes">exemple.txt</property>
-            <signal name="changed" handler="on_entry2_changed" swapped="no"/>
-          </object>
-          <packing>
-            <property name="x">400</property>
-            <property name="y">320</property>
+            <property name="y">300</property>
           </packing>
         </child>
         <child>
