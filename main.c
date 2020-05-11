@@ -183,78 +183,117 @@ void on_button2_clicked(GtkButton *b)
 }
 
 void on_button3_clicked(GtkButton *b)
-{
-  //fopen(name, "w");
+  {
+    FILE *fileopen;
+    char *filename;
+    
+    GtkWidget *dialog;
+     
+     dialog = gtk_file_chooser_dialog_new ("Save File",
+     				      window,
+     				      GTK_FILE_CHOOSER_ACTION_SAVE,
+     				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+     				      GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT,
+     				      NULL);
+     gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER (dialog), TRUE);
+     
+     /*if (user_edited_a_new_document)
+       {
+         gtk_file_chooser_set_current_folder (GTK_FILE_CHOOSER (dialog), default_folder_for_saving);
+         gtk_file_chooser_set_current_name (GTK_FILE_CHOOSER (dialog), "Untitled document");
+       }
+     else
+       gtk_file_chooser_set_filename (GTK_FILE_CHOOSER (dialog), filename_for_existing_document);
+     */
+     
+     if (gtk_dialog_run (GTK_DIALOG (dialog)) == GTK_RESPONSE_ACCEPT)
+       {
+         
+     
+         filename = gtk_file_chooser_get_filename (GTK_FILE_CHOOSER (dialog));
+        //name=filename;
+        fileopen=fopen(filename,"w");
+       }else
+       {
+         type=2;
+       }
+
+     gtk_widget_destroy (dialog);
+     gtk_widget_destroy (dialog);              
   float total=size;
   //printf("total = %d\n",total);
-  ok=10;
-  while(size>0)
+  //printf("filename : %s\n",filename);
+  if(type!=2)
   {
-    
-    size = size -10;
-    if(size<0)
+    ok=10;
+    while(size>0)
     {
-      ok = size+10;
-    }
-    float state=1-size/total;
-    //printf("div=%f\n",state);
-    progress_bar(state);
-    //printf("ok=%d\n",ok);
-    for(int y=0;y<ok;y++)
-    {
-        file[y]=fgetc(f);
-    }
-    if (type==0)
-    {
-      if (choix==1){cesar_crypt(2,file,name);}
-      if (choix==2){poly_crypt(key,file,name);}
-      if (choix==3)
+      
+      size = size -10;
+      if(size<0)
       {
-        int fatkey[256][256];
-        FILE *k;
-        k= fopen("key.txt","r");
-        for (int i = 0; i < 256; i++)
-        {
-            for (int j = 0; j < 256; j++)
-            {
-                fatkey[i][j]=fgetc(k);
-                //printf("\n[%d][%d]==[%d]\n",i,j,fatkey[i][j]);
-                //Sleep(200);
-            }
-        }
-        fclose(k);
-        v_normal(key,fatkey,file,name);  
+        ok = size+10;
       }
-    }
-    if (type==1)
-    {
-      if (choix==1){cesar_normal(-2,file,name);}
-      if (choix==2){poly_normal(key,file,name);}
-      if (choix==3)
+      float state=1-size/total;
+      //printf("div=%f\n",state);
+      progress_bar(state);
+      //printf("ok=%d\n",ok);
+      for(int y=0;y<ok;y++)
       {
+          file[y]=fgetc(f);
+      }
+      if (type==0)
+      {
+        if (choix==1){cesar_crypt(2,file,filename);}
+        if (choix==2){poly_crypt(key,file,filename);}
+        if (choix==3)
+        {
           int fatkey[256][256];
           FILE *k;
-            k= fopen("key.txt","rb");
-            if(k==NULL)
-            { 
-              gtk_widget_show(dialog);
-            }
-            for (int i = 0; i < 256; i++)
-            {
-                for (int j = 0; j < 256; j++)
-                {
-                    fatkey[i][j]=fgetc(k);
-                    //printf("\n[%d][%d]==[%d]\n",i,j,fatkey[i][j]);
-                    //Sleep(200);
-                }
-            }
+          k= fopen("key.txt","r");
+          for (int i = 0; i < 256; i++)
+          {
+              for (int j = 0; j < 256; j++)
+              {
+                  fatkey[i][j]=fgetc(k);
+                  //printf("\n[%d][%d]==[%d]\n",i,j,fatkey[i][j]);
+                  //Sleep(200);
+              }
+          }
           fclose(k);
-          v_normal(key,fatkey,file,name);
+          v_normal(key,fatkey,file,filename);  
+        }
       }
-    }
-    memset(file,0,sizeof file);
-  } 
-  gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(prog1),(gdouble) 1.00);
+      if (type==1)
+      {
+        if (choix==1){cesar_normal(-2,file,filename);}
+        if (choix==2){poly_normal(key,file,filename);}
+        if (choix==3)
+        {
+            int fatkey[256][256];
+            FILE *k;
+              k= fopen("key.txt","rb");
+              if(k==NULL)
+              { 
+                gtk_widget_show(dialog);
+              }
+              for (int i = 0; i < 256; i++)
+              {
+                  for (int j = 0; j < 256; j++)
+                  {
+                      fatkey[i][j]=fgetc(k);
+                      //printf("\n[%d][%d]==[%d]\n",i,j,fatkey[i][j]);
+                      //Sleep(200);
+                  }
+              }
+            fclose(k);
+            v_normal(key,fatkey,file,filename);
+        }
+      }
+      memset(file,0,sizeof file);
+    } 
+    gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(prog1),(gdouble) 1.00);
+  }
 }
 
 void on_file1_file_set (GtkFileChooserButton *file)
