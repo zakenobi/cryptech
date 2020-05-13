@@ -103,7 +103,6 @@ int main(int argc, char *argv[])
 
 	gtk_widget_show(window);
   gtk_widget_hide(entry1);
-  gtk_widget_hide(entry2);
   gtk_widget_hide(button3);
   gtk_widget_hide(prog1);
   //gtk_widget_hide(dialog);
@@ -117,7 +116,6 @@ int main(int argc, char *argv[])
 void on_button1_clicked(GtkButton *b)
 {
   type=0;
-  gtk_widget_show(entry2);
   gtk_widget_show(button3);
   gtk_widget_show(prog1);
   if (choix==1)
@@ -139,7 +137,6 @@ void on_button1_clicked(GtkButton *b)
     { 
       quick_message(window,"Vous n'avez pas accès à ce produit");
       gtk_widget_hide(entry1);
-      gtk_widget_hide(entry2);
       gtk_widget_hide(button3);
       gtk_widget_hide(prog1);
     }
@@ -151,7 +148,6 @@ void on_button1_clicked(GtkButton *b)
 void on_button2_clicked(GtkButton *b)
 {
   type=1;
-  gtk_widget_show(entry2);
   gtk_widget_show(button3);
   gtk_widget_show(prog1);
   if (choix==1)
@@ -172,7 +168,6 @@ void on_button2_clicked(GtkButton *b)
     { 
       quick_message(window,"Vous n'avez pas accès à ce produit");
       gtk_widget_hide(entry1);
-      gtk_widget_hide(entry2);
       gtk_widget_hide(button3);
       gtk_widget_hide(prog1);
 
@@ -215,7 +210,10 @@ void on_button3_clicked(GtkButton *b)
         fileopen=fopen(filename,"w");
        }else
        {
-         type=2;
+          type=2;
+          gtk_widget_hide(entry1);
+          gtk_widget_hide(button3);
+          gtk_widget_hide(prog1);
        }
 
      gtk_widget_destroy (dialog);
@@ -299,7 +297,6 @@ void on_button3_clicked(GtkButton *b)
 void on_file1_file_set (GtkFileChooserButton *file)
 {
   gtk_widget_hide(entry1);
-  gtk_widget_hide(entry2);
   gtk_widget_hide(button3);
   gtk_widget_hide(prog1);
   //printf("I got here");
@@ -354,8 +351,7 @@ int findSize(const char *file_name)
         return -1;
 }
 
-void
-quick_message (GtkWindow *parent, gchar *message)
+void quick_message (GtkWindow *parent, gchar *message)
 {
  GtkWidget *dialog, *label5, *content_area;
  GtkDialogFlags flags;
