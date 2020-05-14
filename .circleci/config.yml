@@ -8,4 +8,6 @@ jobs:
 
       steps:
       - checkout
-      - run: make cryptech
+      - run:
+        name: "Testing"
+        command: echo "Hi"
