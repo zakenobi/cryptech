@@ -36,7 +36,6 @@ GtkWidget     *radio3;
 GtkBuilder    *builder;
 GtkWidget     *file1;
 GtkWidget     *entry1;
-GtkWidget     *entry2;
 GtkWidget     *prog1;
 
 static gboolean progress_bar(float prog)
@@ -98,7 +97,6 @@ int main(int argc, char *argv[])
   radio2 = GTK_WIDGET(gtk_builder_get_object(builder, "radio2"));
   radio3 = GTK_WIDGET(gtk_builder_get_object(builder, "radio3"));
   entry1 = GTK_WIDGET(gtk_builder_get_object(builder, "entry1"));
-  entry2 = GTK_WIDGET(gtk_builder_get_object(builder, "entry2"));
   prog1 = GTK_WIDGET(gtk_builder_get_object(builder, "prog1"));
 
 	gtk_widget_show(window);
